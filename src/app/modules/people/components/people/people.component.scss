@@ -1,0 +1,41 @@
+@import '../../../../../app/scss/buttons';
+@import '../../../../../app/scss/avatars';
+@import '../../../../../app/scss/cards';
+
+:host {
+  .text-cap {
+      display: block;
+      color: #1e2022;
+      font-size: .8125rem;
+      font-weight: 600;
+      letter-spacing: .03125rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+  }
+
+  // Local overrides for this component
+  .card {
+    .card-title {
+      color: #1e2022;
+      font-weight: 700;
+    }
+    .card-subtitle {
+      color: rgb(103, 119, 136);
+    }
+    .card-footer {
+      background-color:  #fff;
+
+      a {
+        .social {
+          fill: #377dff;
+        }
+
+        &:hover {
+          .social {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}

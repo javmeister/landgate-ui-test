@@ -1,0 +1,207 @@
+<header class="bg-dark pt-9 pb-11 d-none d-md-block">
+  <div class="container-md">
+    <div class="row align-items-center">
+      <div class="col">
+
+        <!-- Heading -->
+        <h1 class="fw-bold text-white mb-2">
+          Personal Information
+        </h1>
+
+        <!-- Text -->
+        <p class="fs-lg text-white-75 mb-0">
+          for <span class="fw-bold text-white">{{ person.fullName }}</span>
+        </p>
+
+      </div>
+
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</header>
+
+<main class="pb-8 pb-md-11 mt-md-n6">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-12 col-md-3">
+
+        <!-- Card -->
+        <div class="card card-bleed border-bottom border-bottom-md-0 shadow-light-lg">
+
+          <!-- Collapse -->
+          <div class="collapse d-md-block" id="sidenavCollapse">
+            <div class="card-body">
+
+              <div class="d-none d-lg-block text-center mb-5">
+                <div class="avatar avatar-xxl mb-3">
+                  <img class="avatar-img rounded-circle" src="./assets/images/{{ person.avatarImage }}" alt="Image Description">
+                </div>
+
+                <h4 class="card-title mb-0 fw-bolder">{{ person.fullName }}</h4>
+                <p class="card-text small text-uppercase">{{ person.jobTitle }}</p>
+              </div>
+
+              <!-- Heading -->
+              <h6 class="fw-bolder text-uppercase mb-3">
+                Account
+              </h6>
+
+              <!-- List -->
+              <ul class="card-list list text-gray-700 mb-6">
+                <li class="list-item active">
+                  <a class="list-link text-reset" href="account-general.html">
+                    Basic Information
+                  </a>
+                </li>
+                <li class="list-item">
+                  <a class="list-link text-reset" href="account-security.html">
+                    Social Media
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-12 col-md-9">
+
+        <!-- Card -->
+        <div class="card card-bleed shadow-light-lg mb-6">
+          <div class="card-header">
+
+            <!-- Heading -->
+            <h4 class="mb-0 fw-bolder">
+              Basic Information
+            </h4>
+
+          </div>
+          <div class="card-body">
+
+            <!-- Form -->
+            <form #personBasicInfo="ngForm" (ngSubmit)="onSubmit(personBasicInfo)" (reset)="$event.preventDefault()">
+              <div class="row">
+                <div class="col-12 col-md-6">
+
+                  <!-- First Name -->
+                  <div class="form-group">
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Bronn" [ngModel]="person.firstName">
+                  </div>
+
+                </div>
+                <div class="col-12 col-md-6">
+
+                  <!-- Last Name -->
+                  <div class="form-group">
+                    <label class="form-label" for="lastName">Last Name</label>
+                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Blackwater" [ngModel]="person.lastName">
+                  </div>
+
+                </div>
+                <div class="col-12 col-md-6">
+
+                  <!-- Age -->
+                  <div class="form-group">
+                    <label class="form-label" for="age">Age</label>
+                    <input class="form-control" id="age" name="age" type="text" placeholder="20" [ngModel]="person.age">
+                  </div>
+
+                </div>
+                <div class="col-12 col-md-6">
+
+                  <!-- Job Title -->
+                  <div class="form-group">
+                    <label class="form-label" for="jobTitle">Job Title</label>
+                    <input class="form-control" id="jobTitle" name="jobTitle" type="text" placeholder="Master of Coin" [ngModel]="person.jobTitle">
+                  </div>
+
+                </div>
+                <div class="col-12">
+
+                  <!-- Bio -->
+                  <div class="form-group">
+                    <label class="form-label" for="bio">Bio</label>
+                    <quill-editor name="bio" id="bio" class="bio-editor" [ngModel]="person.bio"></quill-editor>
+                  </div>
+                </div>
+                <div class="col-12 col-md-12 d-flex justify-content-end">
+
+                  <button class="btn w-15 me-4 btn-white" type="button" [disabled]="!isDirty(personBasicInfo)" (click)="reset(personBasicInfo)">
+                    Cancel
+                  </button>
+
+                  <input type="submit" value="Save Changes" class="btn w-25 btn-primary" [disabled]="!isDirty(personBasicInfo)">
+
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+        <div class="card card-bleed shadow-light-lg mb-8">
+          <div class="card-header">
+
+            <!-- Title -->
+            <h4 class="mb-0 fw-bolder">
+              Social Media
+            </h4>
+
+          </div>
+          <div class="card-body">
+
+            <form #personSocialMedia="ngForm" (ngSubmit)="onSubmit(personSocialMedia)"  (reset)="$event.preventDefault()">
+              <div class="row">
+                <div class="col-12 col-md-12">
+
+                  <!-- Facebook -->
+                  <div class="form-group social">
+                    <label class="form-label" for="facebook">Facebook</label>
+                    <div class="input-group">
+                      <span class="input-group-text d-flex align-items-center fw-bold"><svg width="24" height="24" class="me-3"><use xlink:href="#facebook"></use></svg>https://facebook.com/</span>
+                      <input class="form-control" id="facebook" name="facebook" type="text" [ngModel]="person.facebook">
+                    </div>
+                  </div>
+
+                  <!-- Twitter -->
+                  <div class="form-group social">
+                    <label class="form-label" for="twitter">Twitter</label>
+                    <div class="input-group">
+                      <span class="input-group-text d-flex align-items-center fw-bold"><svg width="24" height="24" class="me-3"><use xlink:href="#twitter"></use></svg>https://twitter.com/</span>
+                      <input class="form-control" id="twitter" name="twitter" type="text" [ngModel]="person.twitter">
+                    </div>
+                  </div>
+
+                  <!-- Instagram -->
+                  <div class="form-group social">
+                    <label class="form-label" for="instagram">Instagram</label>
+                    <div class="input-group">
+                      <span class="input-group-text d-flex align-items-center fw-bold"><svg width="24" height="24" class="me-3"><use xlink:href="#instagram"></use></svg>https://instagram.com/</span>
+                      <input class="form-control" id="instagram" name="instagram" type="text" [ngModel]="person.instagram">
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-12 col-md-12 mt-4 d-flex justify-content-end">
+
+                  <button class="btn w-15 me-4 btn-white" type="button" [disabled]="!isDirty(personSocialMedia)" (click)="reset(personSocialMedia)">
+                    Cancel
+                  </button>
+
+                  <input type="submit" value="Save Changes" class="btn w-25 btn-primary" [disabled]="!isDirty(personSocialMedia)">
+
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- / .row -->
+  </div> <!-- / .container -->
+</main>

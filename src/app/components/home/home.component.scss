@@ -1,5 +1,17 @@
-section{
+:host {
+  section.hero {
     background-image: url("/assets/images/hero-bg.jpg");
-    width:auto;
-    height: 300px;
+  }
+
+  section.product {
+    .card {
+      span.accent {
+        color: #619293;
+      }
+    }
+  }
+
+  .fw-medium {
+    font-weight: 400;
+  }
 }

@@ -1,0 +1,15 @@
+:host {
+
+  .navbar-brand {
+    margin-top: -4px; // Hacky, but the logo is slightly off-centre
+
+    .brand-logo {
+      height: 33px;
+    }
+
+    .brand-landgate {
+      width: 143px;
+      height: 20px;
+    }
+  }
+}

@@ -1,25 +1,108 @@
-<!-- TODO: make the footer a 3 column responsive layout -->
-<footer>
-    <div>
-        <h2>About</h2>
-        <ul>
-            <li><a href="#">Learn More</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Careers</a></li>
+<!-- IMPROVEMENT: This is here gives the flexibility to be able to disable it directly from an input in the foote component -->
+<app-curved-section-separator></app-curved-section-separator>
+
+<footer class="py-8 py-md-11 bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-6">
+
+        <img class="footer-brand img-fluid mb-2" src="/assets/images/LG-mark.png" alt="" width="40" height="31">
+
+        <p class="text-gray-700 mb-2 fw-bold">
+          LandGate
+        </p>
+        <p class="text-white">
+          PE Certified<br>
+          SEC Compliant
+        </p>
+
+        <!-- Social Links -->
+        <ul class="list-unstyled list-inline list-social mb-6 mb-md-0">
+          <li class="list-inline-item list-social-item me-3">
+            <a href="#!" class="text-decoration-none">
+              <svg width="28" height="28"><use xlink:href="#facebook"></use></svg>
+            </a>
+          </li>
+          <li class="list-inline-item list-social-item me-3">
+            <a href="#!" class="text-decoration-none">
+              <svg width="28" height="28"><use xlink:href="#twitter"></use></svg>
+            </a>
+          </li>
+          <li class="list-inline-item list-social-item me-3">
+            <a href="#!" class="text-decoration-none">
+              <svg width="28" height="28"><use xlink:href="#instagram"></use></svg>
+            </a>
+          </li>
         </ul>
-    </div>
-    <div>
-        <h2 class="ft-title">Resources</h2>
-        <ul>
-            <li><a href="#">Docs</a></li>
-            <li><a href="#">Blog</a></li>
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+
+        <h6 class="fw-bold text-uppercase text-gray-700">
+          About
+        </h6>
+
+        <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+          <li class="mb-3">
+            <a [routerLink]="['/not-found']" class="text-reset fw-bold">
+              Learn More
+            </a>
+          </li>
+          <li class="mb-3">
+            <a [routerLink]="['/people']" class="text-reset fw-bold">
+              People
+            </a>
+          </li>
+          <li class="mb-3">
+            <a [routerLink]="['/not-found']" class="text-reset fw-bold">
+              Careers
+            </a>
+          </li>
         </ul>
-    </div>
-    <div>
-        <h2>Contact</h2>
-        <ul>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Sales</a></li>
+
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+
+        <h6 class="fw-bold text-uppercase text-gray-700">
+          Resources
+        </h6>
+
+        <ul class="list-unstyled text-muted mb-6 mb-md-8 mb-lg-0">
+          <li class="mb-3">
+            <a [routerLink]="['/not-found']" class="text-reset fw-bold">
+              Documentation
+            </a>
+          </li>
+          <li class="mb-3">
+            <a [routerLink]="['/not-found']" class="text-reset fw-bold">
+              Blog
+            </a>
+          </li>
         </ul>
+
+      </div>
+      <div class="col-6 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
+
+        <h6 class="fw-bold text-uppercase text-gray-700">
+          Contact
+        </h6>
+
+        <ul class="list-unstyled text-muted mb-0">
+          <li class="mb-3">
+            <a [routerLink]="['/not-found']" class="text-reset fw-bold">
+              Help
+            </a>
+          </li>
+          <li class="mb-3">
+            <a [routerLink]="['/not-found']" class="text-reset fw-bold">
+              Sales
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
     </div>
+  </div>
 </footer>
+

@@ -5,10 +5,10 @@
       <img class="brand-logo d-inline me-2" src="/assets/images/LG-mark.png" alt="Landgate">
       <img class="brand-landgate d-inline" src="/assets/images/landgate.png" alt="Landgate">
     </a>
-    <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" aria-label="Toggle navigation" (click)="toggle()">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse">
+    <div class="navbar-collapse" [ngClass]="state">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" [routerLink]="['/home']" [routerLinkActive]="'active'">Home</a>

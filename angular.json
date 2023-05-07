@@ -47,7 +47,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref": "/landgate-ui-test/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

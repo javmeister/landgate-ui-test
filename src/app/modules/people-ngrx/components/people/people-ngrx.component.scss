@@ -1,6 +1,3 @@
-@import '../../../../../app/scss/buttons';
-@import '../../../../../app/scss/avatars';
-@import '../../../../../app/scss/cards';
 
 :host {
   .text-cap {
@@ -25,17 +22,29 @@
     .card-footer {
       background-color:  #fff;
 
-      a {
-        .social {
-          fill: #377dff;
-        }
+      .social {
+        a {
+          padding: 0.3125rem 0.5rem;
 
-        &:hover {
-          .social {
-            fill: #fff;
+          svg {
+            fill: #377dff;
+          }
+
+          &:hover {
+            svg {
+              fill: #fff;
+            }
           }
         }
       }
     }
+  }
+
+
+.card-transition {
+  transition: all .2s ease-in-out
+}
+  .card-transition:focus,.card-transition:hover {
+    transform: translateY(-.1875rem)!important
   }
 }

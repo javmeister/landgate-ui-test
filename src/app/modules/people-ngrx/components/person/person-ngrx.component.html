@@ -10,7 +10,7 @@
 
         <!-- Text -->
         <p class="fs-lg text-white-75 mb-0">
-          for <span class="fw-bold text-white">{{ person.fullName }}</span>
+          for <span class="fw-bold text-white">{{ (person$ | async)?.fullName }}</span>
         </p>
 
       </div>
@@ -33,11 +33,11 @@
 
               <div class="d-none d-lg-block text-center mb-5">
                 <div class="avatar avatar-xxl mb-3">
-                  <img class="avatar-img rounded-circle" src="./assets/images/{{ person.avatarImage }}" alt="Image Description">
+                  <img class="avatar-img rounded-circle" src="./assets/images/{{ (person$ | async)?.avatarImage }}" alt="Image Description">
                 </div>
 
-                <h4 class="card-title mb-0 fw-bolder">{{ person.fullName }}</h4>
-                <p class="card-text small text-uppercase">{{ person.jobTitle }}</p>
+                <h4 class="card-title mb-0 fw-bolder">{{ (person$ | async)?.fullName }}</h4>
+                <p class="card-text small text-uppercase">{{ (person$ | async)?.jobTitle }}</p>
               </div>
 
               <!-- Heading -->
@@ -87,7 +87,7 @@
                   <!-- First Name -->
                   <div class="form-group">
                     <label class="form-label" for="firstName">First Name</label>
-                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Bronn" [ngModel]="person.firstName">
+                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Bronn" [ngModel]="(person$ | async)?.firstName">
                   </div>
 
                 </div>
@@ -96,7 +96,7 @@
                   <!-- Last Name -->
                   <div class="form-group">
                     <label class="form-label" for="lastName">Last Name</label>
-                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Blackwater" [ngModel]="person.lastName">
+                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Blackwater" [ngModel]="(person$ | async)?.lastName">
                   </div>
 
                 </div>
@@ -105,7 +105,7 @@
                   <!-- Age -->
                   <div class="form-group">
                     <label class="form-label" for="age">Age</label>
-                    <input class="form-control" id="age" name="age" type="text" placeholder="20" [ngModel]="person.age">
+                    <input class="form-control" id="age" name="age" type="text" placeholder="20" [ngModel]="(person$ | async)?.age">
                   </div>
 
                 </div>
@@ -114,7 +114,7 @@
                   <!-- Job Title -->
                   <div class="form-group">
                     <label class="form-label" for="jobTitle">Job Title</label>
-                    <input class="form-control" id="jobTitle" name="jobTitle" type="text" placeholder="Master of Coin" [ngModel]="person.jobTitle">
+                    <input class="form-control" id="jobTitle" name="jobTitle" type="text" placeholder="Master of Coin" [ngModel]="(person$ | async)?.jobTitle">
                   </div>
 
                 </div>
@@ -123,7 +123,7 @@
                   <!-- Bio -->
                   <div class="form-group">
                     <label class="form-label" for="bio">Bio</label>
-                    <quill-editor name="bio" id="bio" class="bio-editor" [ngModel]="person.bio"></quill-editor>
+                    <quill-editor name="bio" id="bio" class="bio-editor" [ngModel]="(person$ | async)?.bio"></quill-editor>
                   </div>
                 </div>
                 <div class="col-12 col-md-12 d-flex justify-content-end">
@@ -133,8 +133,8 @@
                   </button>
 
                   <input type="submit" value="Save Changes" class="btn w-25 btn-primary" [disabled]="!isDirty(personBasicInfo)">
-                  <input type="hidden" [ngModel]="person.id" name="id" id="id" [value]="person.id">
 
+                  <input type="hidden" [ngModel]="(person$ | async)?.id" name="id" id="id" [value]="(person$ | async)?.id">
                 </div>
               </div>
             </form>
@@ -162,7 +162,7 @@
                     <label class="form-label" for="facebook">Facebook</label>
                     <div class="input-group">
                       <span class="input-group-text d-flex align-items-center fw-bold"><svg width="24" height="24" class="me-3"><use xlink:href="#facebook"></use></svg>https://facebook.com/</span>
-                      <input class="form-control" id="facebook" name="facebook" type="text" [ngModel]="person.facebook">
+                      <input class="form-control" id="facebook" name="facebook" type="text" [ngModel]="(person$ | async)?.facebook">
                     </div>
                   </div>
 
@@ -171,7 +171,7 @@
                     <label class="form-label" for="twitter">Twitter</label>
                     <div class="input-group">
                       <span class="input-group-text d-flex align-items-center fw-bold"><svg width="24" height="24" class="me-3"><use xlink:href="#twitter"></use></svg>https://twitter.com/</span>
-                      <input class="form-control" id="twitter" name="twitter" type="text" [ngModel]="person.twitter">
+                      <input class="form-control" id="twitter" name="twitter" type="text" [ngModel]="(person$ | async)?.twitter">
                     </div>
                   </div>
 
@@ -180,7 +180,7 @@
                     <label class="form-label" for="instagram">Instagram</label>
                     <div class="input-group">
                       <span class="input-group-text d-flex align-items-center fw-bold"><svg width="24" height="24" class="me-3"><use xlink:href="#instagram"></use></svg>https://instagram.com/</span>
-                      <input class="form-control" id="instagram" name="instagram" type="text" [ngModel]="person.instagram">
+                      <input class="form-control" id="instagram" name="instagram" type="text" [ngModel]="(person$ | async)?.instagram">
                     </div>
 
                   </div>
@@ -194,7 +194,7 @@
                   </button>
 
                   <input type="submit" value="Save Changes" class="btn w-25 btn-primary" [disabled]="!isDirty(personSocialMedia)">
-                  <input type="hidden" [ngModel]="person.id" name="id" id="id" [value]="person.id">
+                  <input type="hidden" [ngModel]="(person$ | async)?.id" name="id" id="id" [value]="(person$ | async)?.id">
 
                 </div>
               </div>

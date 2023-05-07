@@ -7,8 +7,9 @@ import { PersonResolver } from 'src/app/services/person.resolver';
 const routes: Routes = [
   { path: '', component: PeopleComponent },
   {
-    path: ':slug',
+    path: ':id',
     component: PersonComponent,
+    runGuardsAndResolvers: 'always',
     resolve: {
       person: PersonResolver
     }

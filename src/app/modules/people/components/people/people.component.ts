@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PersonModel } from 'src/app/models/person-model';
+import { Person } from 'src/app/models/person';
 import { PeopleService } from 'src/app/services/people.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { PeopleService } from 'src/app/services/people.service';
 })
 export class PeopleComponent implements OnInit {
 
-  public people$!: Observable<PersonModel[]>;
+  public people$!: Observable<Person[]>;
 
   constructor(private readonly peopleService: PeopleService) { }
 

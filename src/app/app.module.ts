@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { reducers, metaReducers } from './reducers';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -43,6 +44,7 @@ import { SocialSvgsComponent } from './components/social-svgs/social-svgs.compon
       metaReducers
     }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 100, // Retains last 100 states

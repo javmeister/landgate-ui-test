@@ -1,30 +1,40 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { PersonModel } from 'src/app/models/person-model';
-import { FormControl, NgForm } from '@angular/forms';
-
-
+import { Component, Input, OnDestroy } from '@angular/core';
+import { Person } from 'src/app/models/person';
+import { NgForm } from '@angular/forms';
+import { PeopleService } from 'src/app/services/people.service';
+import { Observable, Subscription, lastValueFrom } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-person-component',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss']
 })
-export class PersonComponent {
+export class PersonComponent implements OnDestroy  {
   // Angular 16 route params binding FTW!
-  @Input() slug?: string;
-  @Input() person!: PersonModel;
+  @Input() id?: string;
 
-  @ViewChild('personBasicInfo') personBasicInfoForm!: NgForm;
-  @ViewChild('personSocialMedia') personSocialMediaForm!: NgForm;
+  public person!: Person;
 
-  public readonly PERSON_INFO_FORM_KEY = 'personBasicInfo';
-  public readonly SOCIAL_MEDIA_FORM_KEY = 'personSocialMedia';
+  private _initialValues!: Person;
+  private _personSubscription!: Subscription;
+
+  constructor(private readonly peopleService: PeopleService,
+    private readonly route: ActivatedRoute) {
+      this.person = this.route.snapshot.data['person'];
+
+      this._initialValues = this.person;
+  }
+
+  ngOnDestroy(): void {
+    this._personSubscription?.unsubscribe();
+  }
 
   onSubmit(form: NgForm) {
-    // Save the data directly to the model
-    Object.keys(form.value).forEach(key => {
-      this.person[key] = form.value[key];
-    });
+    // The service updates the person in the "store", but without ngrx we need to refresh the resolver
+    this.peopleService.updatePerson(form.value.id, form.value)
+      .subscribe(person => this.person = person); // Refresh the data manually, this ain't ngrx
+
     // Reset the form state
     this.reset(form);
   }
@@ -34,6 +44,6 @@ export class PersonComponent {
   }
 
   reset(form: NgForm) {
-    form.reset(this.person);
+    form.reset(this._initialValues);
   }
 }

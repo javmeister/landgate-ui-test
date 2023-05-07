@@ -1,8 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromPeople from '../reducers/people.reducer';
 
-export const selectPeopleState = createFeatureSelector<fromPeople.State>(
-  fromPeople.peopleFeatureKey
-);
+import {
+  peopleFeatureKey,
+  PeopleState,
+  selectIsLoading,
+  selectAll,
+  selectError,
+  selectEntities
+} from '../reducers/people.reducer';
 
-// TODO: need to add a selector for people.
+import { selectRouteParams } from './router.selectors';
+
+export const peopleFeatureSelector = createFeatureSelector<PeopleState>(peopleFeatureKey);
+
+export const isLoading = createSelector(peopleFeatureSelector, selectIsLoading);
+export const error = createSelector(peopleFeatureSelector, selectError);
+
+export const selectPeople = createSelector(peopleFeatureSelector, selectAll);
+export const selectPeopleEntities = createSelector(peopleFeatureSelector, selectEntities);
+export const selectPerson = createSelector(selectPeopleEntities, selectRouteParams, (people, { id }) => people[id]);

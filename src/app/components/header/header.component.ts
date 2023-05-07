@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  // There are libraries that handle bootstrap navbars better than this, but this is a simple example
   toggle() {
     if (this.state === 'collapse') {
       this.state = 'collapsing';

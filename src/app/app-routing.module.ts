@@ -6,14 +6,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  {
-    path: 'people',
-    loadChildren: () => import('./modules/people/people.module').then(m => m.PeopleModule)
-  }
   // {
   //   path: 'people',
-  //   loadChildren: () => import('./modules/people-ngrx/people-ngrx.module').then(m => m.PeopleNgrxModule)
+  //   loadChildren: () => import('./modules/people/people.module').then(m => m.PeopleModule)
   // }
+  {
+    path: 'people',
+    loadChildren: () => import('./modules/people-ngrx/people-ngrx.module').then(m => m.PeopleNgrxModule)
+  }
   , { path: '**', component: NotFoundComponent }
 ];
 

@@ -1,4 +1,4 @@
-# LandgateUiTest
+# Landgate Ui Test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.  Please follow the Angular Cli link on how to setup and install the required dependencies.  
 

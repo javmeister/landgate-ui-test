@@ -1,0 +1,12 @@
+
+// Custom font
+@import './app/scss/fonts';
+
+// Custom global styles
+@import './app/scss/global';
+
+// Custom theme
+@import './app/scss/theme/theme';
+
+// Quilljs editor
+@import '/node_modules/quill/dist/quill.snow.css';

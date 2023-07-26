@@ -1,0 +1,150 @@
+{
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "landgate-ui-test",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/landgate-ui-test",
+        "index": "src/index.html",
+        "main": "src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "tsconfig.app.json",
+        "assets": [
+          "src/favicon.ico",
+          "src/assets",
+          {
+            "glob": "CNAME",
+            "input": "src/assets",
+            "output": "./"
+          }
+        ],
+        "styles": [
+          "src/styles.scss"
+        ],
+        "scripts": [],
+        "vendorChunk": true,
+        "extractLicenses": false,
+        "buildOptimizer": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": true,
+          "extractLicenses": true,
+          "vendorChunk": true,
+          "commonChunk": true,
+          "buildOptimizer": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ]
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "browserTarget": "landgate-ui-test:build"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "landgate-ui-test:build:production"
+        },
+        "development": {
+          "browserTarget": "landgate-ui-test:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "landgate-ui-test:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "src/test.ts",
+        "polyfills": "src/polyfills.ts",
+        "tsConfig": "tsconfig.spec.json",
+        "karmaConfig": "karma.conf.js",
+        "assets": [
+          "src/favicon.ico",
+          "src/assets"
+        ],
+        "styles": [
+          "src/styles.scss"
+        ],
+        "scripts": []
+      }
+    },
+    "lint": {
+      "executor": "@angular-devkit/build-angular:tslint",
+      "options": {
+        "tsConfig": [
+          "tsconfig.app.json",
+          "tsconfig.spec.json",
+          "e2e/tsconfig.json"
+        ],
+        "exclude": [
+          "**/node_modules/**"
+        ]
+      }
+    },
+    "e2e": {
+      "executor": "@angular-devkit/build-angular:protractor",
+      "options": {
+        "protractorConfig": "e2e/protractor.conf.js",
+        "devServerTarget": "landgate-ui-test:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "landgate-ui-test:serve:production"
+        }
+      }
+    }
+  }
+}

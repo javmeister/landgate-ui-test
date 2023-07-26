@@ -1,0 +1,24 @@
+:host {
+
+  .navbar-brand {
+    margin-top: -4px; // Hacky, but the logo is slightly off-centre
+
+    .brand-logo {
+      height: 33px;
+    }
+
+    .brand-landgate {
+      width: 143px;
+      height: 20px;
+    }
+  }
+
+  // Override theme styles for the mobile navbar menu
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    overflow: hidden; // no need for scroll bar
+  }
+}

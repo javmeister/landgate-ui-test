@@ -1,0 +1,27 @@
+:host {
+  display: block;
+
+  footer {
+    background-image: url(/assets/images/wave-pattern-light.svg);
+
+    a.nav-link {
+      font-weight: 400;
+      font-size: .875rem;
+    }
+    .list-social {
+      a {
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: #869ab8;
+        }
+        &:hover {
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+
+    }
+  }
+}

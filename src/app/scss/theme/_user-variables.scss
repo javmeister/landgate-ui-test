@@ -1,0 +1,14 @@
+//
+// user-variables.scss
+// Use this to overwrite Bootstrap and theme variables
+//
+
+// Example of a variable override to change theme's background color
+// Remove the "//" to comment it in and see it in action!
+// $body-bg: #12263F;
+
+:root {
+--bs-font-sans-serif: Lato,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+--bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+--bs-body-font-family: Lato,sans-serif;
+}
